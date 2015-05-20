@@ -31,10 +31,15 @@ x1 = np.arange(pos_inicial_y1, tam_y1+pos_inicial_y1)
 #faz o eixo do X para o segundo sinal rebatido
 pos_ini_rebatido = tam_y1-(pos_inicial_y1+1)
 x1_rebatido = np.arange(-pos_ini_rebatido, pos_inicial_y1+1)
-
+#Testando...
 print(x1_rebatido)
-
+#testando...
 print(pos_inicial_y1)
+
+
+#cria um vetor de eixo X que cabe todos os itens do inicio ao fim da convolução
+x_convolucao = np.arange(-pos_ini_rebatido, tam_y+pos_inicial_y+tam_y)
+print(x_convolucao)
 
 
 fig = plt.figure()
