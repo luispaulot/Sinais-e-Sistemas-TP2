@@ -77,7 +77,11 @@ print x_p_conv
 for z in range(0,np.size(x_p_conv)):
     x_p_conv[z] = 0
 
+
 print x_p_conv
+
+#Array para a resposta de convulução do sinal
+resp_convolve = copy.copy(x_p_conv)
 
 #faz o array receber os valores do primeiro sinal nas posições corretas
 n = 0
@@ -87,6 +91,8 @@ for z in range(tam_y1,tam_y+tam_y1):
 
 print x_p_conv
 
+
+print resp_convolve
 
 
 #plt.bar(x, y, facecolor='#9999ff', edgecolor='white')
