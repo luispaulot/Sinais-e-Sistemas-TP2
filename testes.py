@@ -1,16 +1,17 @@
 #testes
 import numpy as np
+import copy
 
-x = np.array([0,2,3, 5,0])
-qtde = np.size(x)
+x = np.array([9,9,9])
 
-ini = 0
-
-
-print x
-print ini
+y = np.arange(0,7)
 
 
-tam = np.arange(ini, qtde+ini)
+n = 0
+for v in range(2,5):
+    y[v] = x[n]
+    n = n+1
 
-print tam
+
+print y
+
