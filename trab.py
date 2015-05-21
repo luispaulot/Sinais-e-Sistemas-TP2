@@ -81,7 +81,7 @@ print x_p_conv
 
 #faz o array receber os valores do primeiro sinal nas posições corretas
 n = 0
-for z in range(tam_y1,tam_y1*2+1):
+for z in range(tam_y1,tam_y+tam_y1):
     x_p_conv[z] = y_p_conv[n]
     n = n+1
 
