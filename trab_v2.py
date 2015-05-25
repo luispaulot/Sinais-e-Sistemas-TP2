@@ -34,16 +34,6 @@ x1 = np.arange(pos_inicial_y1, tam_y1+pos_inicial_y1)
 #faz o eixo do X para o segundo sinal rebatido
 pos_ini_rebatido = tam_y1-(pos_inicial_y1+1)
 x1_rebatido = np.arange(-pos_ini_rebatido, pos_inicial_y1+1)
-#Testando...
-#print(x1_rebatido)
-#testando...
-#print(pos_inicial_y1)
-
-
-#cria um vetor de eixo X que cabe todos os itens do inicio ao fim da convolução
-#x_convolucao = np.arange(-pos_ini_rebatido, tam_y+pos_inicial_y+tam_y)
-#print(x_convolucao)
-
 
 fig = plt.figure()
 #faz o gráfico do primeiro sinal
@@ -69,47 +59,20 @@ g_rebate.axhline(0, color='black', lw=1)
 g_rebate.grid(True)
 g_rebate.set_xlabel('Segundo sinal rebatido')
 
-#y para convulução
-y_p_conv = copy.copy(y)
-x_p_conv = np.arange(0, tam_y+tam_y1*2)
-print x_p_conv
-#zerar todos
-for z in range(0,np.size(x_p_conv)):
-    x_p_conv[z] = 0
+#plt.show();
+#cria array para 
+txx = np.arange(0,tam_y+tam_y1+1)
+#zera o vetor
+for z in range(0,tam_y+tam_y1+):
+    txx[z] = 0
 
+print txx
 
-print x_p_conv
-
-#Array para a resposta de convulução do sinal
-resp_convolve = copy.copy(x_p_conv)
-
-#faz o array receber os valores do primeiro sinal nas posições corretas
+#coloca os valores de X em XX
 n = 0
-for z in range(tam_y1,tam_y+tam_y1):
-    x_p_conv[z] = y_p_conv[n]
+for z in range(tam_y1, tam_y1+tam_y1):
+    txx[z] = y[n]
     n = n+1
 
-print x_p_conv
-
-
-print resp_convolve
-
-tx = copy.copy(tam_y)
-th = copy.copy(tam_y1)
-a = tx
-b = th
-for z in range(0,np.size(resp_convolve)):
-    for w in range(0,np.size(tam_y1 - 1)):
-        v = y[a]*y1[b]
-        print x, y
-        a = a-1
-        b = b-1
-    y[z] = v
-    a = tx
-    b = th
-
-
-
-#plt.bar(x, y, facecolor='#9999ff', edgecolor='white')
-
-plt.show();
+print txx
+1,1
