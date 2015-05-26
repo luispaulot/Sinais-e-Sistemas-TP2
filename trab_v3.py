@@ -36,7 +36,7 @@ else:
 #fim de rebatimento
     
 
-#cria figura para plotar gráfico
+
 fig = plt.figure()
 #faz o gráfico do primeiro sinal
 ax1 = fig.add_subplot(2, 2, 1)
@@ -54,19 +54,21 @@ ax2.grid(True)
 ax2.set_xlabel('Segundo sinal')
 
 
-#cria array para X[n]
+#cria array para X
 txx = np.arange(0,tam_y+tam_y1*2)
 #zera o vetor
 for z in range(0,tam_y+tam_y1*2):
     txx[z] = 0
 
+print txx
 
-
-#coloca os valores de X[n] em XX[n]
+#coloca os valores de X em XX
 n = 0
 for z in range(tam_y1, tam_y1+tam_y):
     txx[z] = y[n]
     n = n+1
+
+print txx
 
 #cria eixo de x para convolução
 eixo_conv = np.arange(0,tam_y+tam_y1*2)
@@ -77,39 +79,17 @@ conv_print = copy.copy(eixo_conv)
 for z in range(0,tam_y+tam_y1*2):
     eixo_conv[z] = 0
 
-if (tam_y1 == 1):
-    #faz a convolução dos sinais no novo eixo criado 
-    for z in range(0, tam_y+tam_y1):
-        eixo_conv[z] = txx[z+1]*x1_rebatido
-elif(tam_y1 > 1):
-    a = copy.copy(tam_y)-1
-    b = copy.copy(tam_y1)-1
-
-    #faz a convolução dos sinais no novo eixo criado 
-    for z in range(0, tam_y+tam_y1):
-        a = copy.copy(tam_y)-1+z
-        b = copy.copy(tam_y1)-1
-        v = 0
-        for w in range(0, tam_y1):
-            v = txx[a]*x1_rebatido[b]+v
-            #print a
-            #print b
-            #print '----'
-            a = a-1
-            b = b-1
-        eixo_conv[z] = v
-        
-
 print eixo_conv
+
+
 
 #cria o grafico do sinal rebatido
 g_rebate = fig.add_subplot(2, 2, 3)
 g_rebate.scatter(conv_print, eixo_conv)
 g_rebate.axhline(0, color='black', lw=1)
 g_rebate.grid(True)
-g_rebate.set_xlabel('Soma de Convolucao dos sinais')
+g_rebate.set_xlabel('Soma de convolucao dos sinais')
 
-#mostrando o gráfico
 plt.show();
 
 
